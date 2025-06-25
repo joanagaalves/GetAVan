@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :vans # as van owner
+  has_many :bookings # as a lessee
 end
