@@ -1,1 +1,9 @@
 <h1>Please have a look at all the details of <%= @van.title %></h1>
+
+<ul>
+  <li><strong>Title:</strong> <%= @van.title %></li>
+  <li><strong>Description:</strong> <%= @van.description %></li>
+  <li><strong>Price:</strong> <%= number_to_currency(@van.price) %></li>
+  <li><strong>Seats:</strong> <%= @van.seats %></li>
+  <li><strong>Size:</strong> <%= @van.size %></li>
+</ul>

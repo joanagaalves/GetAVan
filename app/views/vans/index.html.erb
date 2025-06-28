@@ -1,1 +1,7 @@
-<h1>List all the vans</h1>
+<h1>Please have a look at all the vans available</h1>
+
+<ul>
+  <% @vans.each do |van| %>
+    <li><%= van.title %></li>
+  <% end %>
+</ul>
