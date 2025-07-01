@@ -1,3 +1,6 @@
+User.destroy_all
+Van.destroy_all
+
 puts "Creating users..."
 
 [
