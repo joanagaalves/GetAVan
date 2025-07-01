@@ -2,6 +2,8 @@
 
 <ul>
   <% @vans.each do |van| %>
-    <li><%= van.title %></li>
+    <li><%= link_to van.title, van_path(van) %></li>
   <% end %>
 </ul>
+
+<%= link_to "Back to Home page", root_path %>
