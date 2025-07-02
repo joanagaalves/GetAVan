@@ -4,7 +4,7 @@
   <% @vans.each do |van| %>
     <li><%= link_to van.title, van_path(van) %>
 
-    <%= link_to "Delete?", van_path(van), method: :delete, data: { confirm: "Es-tu sûr de vouloir supprimer ce van ?" } %>
+    <%= link_to "Delete?", van_path(van), method: :delete, data: { confirm: "Are you sure you want to delete this van ?" } %>
 </li>
   <% end %>
 </ul>
