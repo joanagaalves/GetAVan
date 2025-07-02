@@ -2,7 +2,10 @@
 
 <ul>
   <% @vans.each do |van| %>
-    <li><%= link_to van.title, van_path(van) %></li>
+    <li><%= link_to van.title, van_path(van) %>
+
+    <%= link_to "Delete?", van_path(van), method: :delete, data: { confirm: "Es-tu sûr de vouloir supprimer ce van ?" } %>
+</li>
   <% end %>
 </ul>
 
