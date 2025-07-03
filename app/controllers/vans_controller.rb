@@ -22,14 +22,7 @@ class VansController < ApplicationController
     @van = Van.find(params[:id])
   end
 
-<<<<<<< HEAD
-  def destroy
-    @van = Van.find(params[:id])
-    @van.destroy
-    redirect_to vans_path, notice: "Le van a bien été supprimé."
-=======
   def van_params
     params.require(:van).permit(:title, :description, :price, :model, :seats, :size, photos: [])
->>>>>>> a744bbfc34a5631d0a30a85c8087d95db6b5d936
   end
 end
