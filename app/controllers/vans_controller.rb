@@ -12,8 +12,15 @@ class VansController < ApplicationController
   end
 
   def update
-    @van.update(van_params)
-    redirect_to van_path(@van), notice: "Van was successfully updated."
+    if params[:van][:photos].present?
+      @van.photos.attach(params[:van][:photos])
+    end
+
+    if @van.update(van_params.except(:photos))
+      redirect_to van_path(@van), notice: "Van was successfully updated."
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   private
