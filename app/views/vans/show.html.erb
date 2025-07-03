@@ -14,5 +14,8 @@
   <li><strong>Size:</strong> <%= @van.size %></li>
 </ul>
 
-<%= link_to "Back to Vans list", vans_path %>
-<%= link_to "Back to Home page", root_path %>
+<div class="container mt-5 text-center">
+  <%= link_to "Modifier", edit_van_path(@van), class: "btn btn-warning" %>
+  <%= link_to "Back to Vans list", vans_path, class: "btn btn-outline-secondary"  %>
+  <%= link_to "Back to Home page", root_path, class: "btn btn-outline-secondary"  %>
+</div>
