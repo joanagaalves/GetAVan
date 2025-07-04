@@ -1,3 +1,5 @@
+require "open-uri"
+
 User.destroy_all
 Van.destroy_all
 
@@ -18,11 +20,11 @@ puts "Now creating vans..."
 
 users = User.all
 model_photo_map = {
-  "Mercedes Vito" => ["db/seed_images/mercedes_vito_1.jpeg", "db/seed_images/mercedes_vito_2.jpeg"],
-  "Volkswagen Crafter" => ["db/seed_images/vw_crafter_1.jpeg", "db/seed_images/vw_crafter_2.jpeg"],
-  "Renault Trafic" => ["db/seed_images/renault_trafic_1.jpeg", "db/seed_images/renault_trafic_2.jpeg"],
-  "Peugeot Expert" => ["db/seed_images/peugeot_expert_1.jpeg", "db/seed_images/peugeot_expert_2.jpeg"],
-  "Renault Kangoo" => ["db/seed_images/renault_kangoo_1.jpeg", "db/seed_images/renault_kangoo_2.jpeg"],
+  "Mercedes Vito" => ["https://res.cloudinary.com/djls9crmj/image/upload/v1751479020/oq3ubp0i0iojetgtistz.jpg", "https://res.cloudinary.com/djls9crmj/image/upload/v1751479083/sfacszl6ptacjrsfd4zb.jpg"],
+  "Volkswagen Crafter" => ["https://res.cloudinary.com/djls9crmj/image/upload/v1751479177/vw_crafter_1_ozlw2i.jpg", "https://res.cloudinary.com/djls9crmj/image/upload/v1751479177/vw_crafter_2_dohzss.jpg"],
+  "Renault Trafic" => ["https://res.cloudinary.com/djls9crmj/image/upload/v1751479177/renault_trafic_1_pg0qpr.jpg", "https://res.cloudinary.com/djls9crmj/image/upload/v1751479177/renault_trafic_2_xnlmbd.jpg"],
+  "Peugeot Expert" => ["https://res.cloudinary.com/djls9crmj/image/upload/v1751479104/omoo932emrt30mvqifgs.jpg", "https://res.cloudinary.com/djls9crmj/image/upload/v1751479119/gac1bquiaxnatq8vsgj3.jpg"],
+  "Renault Kangoo" => ["https://res.cloudinary.com/djls9crmj/image/upload/v1751479177/renault_kangoo_1_zjyhsm.jpg", "https://res.cloudinary.com/djls9crmj/image/upload/v1751479177/renault_kangoo_2_wosc8x.jpg"],
 }
 seat_size_map = {
   2 => "small",
@@ -35,7 +37,7 @@ seat_size_map = {
   seats = seat_size_map.keys.sample
   size = seat_size_map[seats]
   model = model_photo_map.keys.sample
-  van_img_path = model_photo_map[model].sample
+  van_img_url = model_photo_map[model].sample
 
   van = Van.create!(
     title: "Your dream Van Nr #{i}",
@@ -47,11 +49,7 @@ seat_size_map = {
     user: users.sample,
   )
 
-  van.photos.attach(
-    io: File.open(Rails.root.join(van_img_path)),
-    filename: File.basename(van_img_path),
-    content_type: "image/jpeg",
-  )
-
-  puts "Created #{van.title} with #{seats} seats, size #{size}, for #{van.user.email}"
+  file = URI.open(van_img_url)
+  van.photos.attach(io: file, filename: File.basename(URI.parse(van_img_url).path), content_type: "image/jpeg")
+  puts "Created #{van.model} #{van.title} with #{seats} seats, size #{size}, for #{van.user.email}"
 end

@@ -1,5 +1,11 @@
 <h1>Please have a look at all the details of <%= @van.title %></h1>
-
+<% if @van.photos.attached? %>
+  <% @van.photos.each do |photo| %>
+    <%= image_tag photo, width: 400 %>
+  <% end %>
+<% else %>
+  <p>No photos attached.</p>
+<% end %>
 <ul>
   <li><strong>Title:</strong> <%= @van.title %></li>
   <li><strong>Description:</strong> <%= @van.description %></li>
@@ -7,3 +13,9 @@
   <li><strong>Seats:</strong> <%= @van.seats %></li>
   <li><strong>Size:</strong> <%= @van.size %></li>
 </ul>
+
+<div class="container mt-5 text-center">
+  <%= link_to "Modifier", edit_van_path(@van), class: "btn btn-warning" %>
+  <%= link_to "Back to Vans list", vans_path, class: "btn btn-outline-secondary"  %>
+  <%= link_to "Back to Home page", root_path, class: "btn btn-outline-secondary"  %>
+</div>
