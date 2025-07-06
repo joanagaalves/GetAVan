@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
+  <div class="container">
+    <%= link_to root_path, class: "navbar-brand d-flex align-items-center" do %>
+      <%= image_tag "get_a_van_logo.png", alt: "GetAVan", class: "navbar-logo me-2" %>
+    <% end %>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <%= link_to "Vans", vans_path, class: "nav-link" %>
+        </li>
+
+        <% if user_signed_in? %>
+          <li class="nav-item">
+            <%= link_to "My Vans", user_vans_path(current_user), class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Bookings", bookings_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Dashboard", dashboard_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "nav-link text-danger" %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<p>hello</p>

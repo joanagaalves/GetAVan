@@ -1,24 +1,16 @@
-<%= form_with(model: @van) do |form| %>
-  <%= form.label :title %>
-  <%= form.text_field :title %>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h1 class="card-title mb-4 text-center">Modifier le van</h1>
+          <%= render "form" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-  <%= form.label :description %>
-  <%= form.text_area :description %>
-
-  <%= form.label :price %>
-  <%= form.number_field :price %>
-
-  <%= form.label :model %>
-  <%= form.text_field :model %>
-
-  <%= form.label :seats %>
-  <%= form.number_field :seats %>
-
-  <%= form.label :size %>
-  <%= form.text_field :size %>
-
-  <%= form.label :photos %>
-  <%= form.file_field :photos, multiple: true %>
-
-  <%= form.submit %>
-<% end %>
+<div class="container mt-5 text-center">
+  <%= link_to "Back to the van", van_path(@van), class: "btn btn-outline-secondary"  %>
+</div>

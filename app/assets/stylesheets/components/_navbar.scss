@@ -1,12 +1,26 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
+.navbar {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+.navbar-brand {
+  font-size: 1.5rem;
+  color: #e98800 !important;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.nav-link {
+  margin-left: 1rem;
+  color: #333;
+}
+
+.nav-link:hover {
+  color: #e98800;
+  background-color: #e7e7e760;
+  border-radius: 7px;
+}
+
+.navbar-logo {
+  width: 75px;
+  height: 50px;
+  object-fit: cover;
 }
