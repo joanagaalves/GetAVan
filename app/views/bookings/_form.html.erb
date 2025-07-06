@@ -1,0 +1,18 @@
+<%= form_with model: [@van, @booking], local: true do |form| %>
+  <div>
+    <%= form.label :van_name, "Van" %><br>
+    <%= text_field_tag :van_name, @van.name, disabled: true %>
+  </div>
+
+  <div>
+    <%= form.label :start_date %><br>
+    <%= form.date_field :start_date %>
+  </div>
+
+  <div>
+    <%= form.label :end_date %><br>
+    <%= form.date_field :end_date %>
+  </div>
+
+  <%= form.submit "Confirm Booking" %>
+<% end %>
