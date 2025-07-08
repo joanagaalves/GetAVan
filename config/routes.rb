@@ -4,6 +4,6 @@ Rails.application.routes.draw do
 
   get "/ui_kit", to: "pages#ui_kit"
   resources :vans do
-    resources :bookings, only: [:new]
+    resources :bookings, only: [:new, :create]
   end
 end
