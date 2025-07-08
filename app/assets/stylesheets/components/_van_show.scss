@@ -1,0 +1,57 @@
+.van-show-page {
+  font-family: 'Poppins', sans-serif;
+
+  .van-detail-card {
+    background-color: #fff;
+    border: 2px solid rgba(231, 231, 231, 0.38);
+    border-radius: 1rem;
+
+    .text-orange {
+      color: #e98800;
+    }
+  }
+
+  .carousel-inner img {
+    transition: transform 0.3s ease;
+  }
+
+  .carousel-item:hover img {
+    transform: scale(1.02);
+  }
+
+  .btn-primary-cta {
+    background-color: #e98800;
+    color: white;
+    font-weight: 600;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.6rem 1.2rem;
+
+    &:hover {
+      background-color: #cc7700;
+    }
+  }
+
+  .btn-secondary-cta {
+    background-color: rgba(231, 231, 231, 0.38);
+    color: #333;
+    font-weight: 600;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.6rem 1.2rem;
+
+    &:hover {
+      background-color: #dcdcdc;
+    }
+  }
+}
+
+.van-show-page .row.align-items-stretch {
+  display: flex;
+}
+
+.van-show-page .col-md-7,
+.van-show-page .col-md-5 {
+  display: flex;
+  flex-direction: column;
+}

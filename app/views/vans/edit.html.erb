@@ -1,3 +1,4 @@
+<!--
 <div class="container py-5" style="font-family: 'Georgia', serif; background-color: #f9f5f0;">
   <div class="row justify-content-center">
     <div class="col-md-8">
@@ -12,6 +13,27 @@
   <div class="row mt-4">
     <div class="col text-center">
       <%= link_to "Back to the van", van_path(@van), class: "btn btn-outline-secondary", style: "border-color: #8b4513; color: #8b4513;" %>
+    </div>
+  </div>
+</div>
+-->
+
+
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="van-card p-4 bg-white shadow-sm">
+        <div class="card-body">
+          <h1 class="card-title text-center text-orange fw-bold mb-4">Edit this Van</h1>
+          <%= render "form" %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <div class="col text-center">
+      <%= link_to "Back to the van", van_path(@van), class: "btn btn-secondary-cta" %>
     </div>
   </div>
 </div>
