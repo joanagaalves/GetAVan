@@ -20,6 +20,10 @@ class BookingsController < ApplicationController
     @van = Van.find(params[:van_id]) if params[:van_id]
   end
 
+  def my_bookings
+    @bookings = current_user.bookings
+  end
+
   private
 
   def set_van
