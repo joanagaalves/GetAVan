@@ -1,7 +1,12 @@
 <%= form_with model: [@van, @booking], local: true do |form| %>
   <div>
     <%= form.label :van_name, "Van" %><br>
-    <%= text_field_tag :van_name, @van.name, disabled: true %>
+    <%= text_field_tag :van_name, @van.title, disabled: true %>
+  </div>
+
+  <div>
+    <%= form.label :van_model, "Model" %><br>
+    <%= text_field_tag :van_name, @van.model, disabled: true %>
   </div>
 
   <div>
@@ -14,5 +19,9 @@
     <%= form.date_field :end_date %>
   </div>
 
-  <%= form.submit "Confirm Booking" %>
+  <%= form.submit "Reserve", class: "btn btn-primary"%>
+    <small class="form-text text-muted d-block mt-2">
+    You won't be charged yet. <br>
+    We'll contact you within 24 hours to confirm your booking details.
+  </small>
 <% end %>
