@@ -1,17 +1,17 @@
-<div class="container mt-5">
+<div class="container py-5" style="font-family: 'Georgia', serif; background-color: #f9f5f0;">
   <div class="row justify-content-center">
     <div class="col-md-8">
-      <div class="card shadow-sm">
+      <div class="card shadow-sm" style="background-color: #fff8dc; border: 2px solid #d2b48c;">
         <div class="card-body">
-          <h1 class="card-title mb-4 text-center">Modifier le van</h1>
+          <h1 class="card-title mb-1 text-center" style="color: #8b4513;">Edit the van</h1>
           <%= render "form" %>
         </div>
       </div>
     </div>
   </div>
+  <div class="row mt-4">
+    <div class="col text-center">
+      <%= link_to "Back to the van", van_path(@van), class: "btn btn-outline-secondary", style: "border-color: #8b4513; color: #8b4513;" %>
+    </div>
+  </div>
 </div>
-
-<div class="container mt-5 text-center">
-  <%= link_to "Back to the van", van_path(@van), class: "btn btn-outline-secondary"  %>
-</div>
-
