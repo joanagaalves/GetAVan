@@ -1,2 +1,6 @@
-<h1>Book <%= @van.title %></h1>
-<%= render 'form' %>
+<div class="van-form-hero d-flex justify-content-center align-items-center">
+  <div class="form-card">
+    <h1 class="mb-4 text-center fw-bold text-dark">Request for "<%= @van.title %>"</h1>
+    <%= render "form" %>
+  </div>
+</div>
