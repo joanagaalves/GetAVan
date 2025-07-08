@@ -43,6 +43,10 @@ class VansController < ApplicationController
     redirect_to vans_path, notice: "Van was successfully deleted."
   end
 
+  def my_vans
+    @vans = current_user.vans
+  end
+
   private
 
   def set_van

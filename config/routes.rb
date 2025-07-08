@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   get "bookings/success", to: "bookings#success", as: "booking_success"
 
   get "my_bookings", to: "bookings#my_bookings"
+
+  get "my_vans", to: "vans#my_vans"
 end
