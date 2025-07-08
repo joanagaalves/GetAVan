@@ -1,20 +1,3 @@
-<!--
-<%= simple_form_for @van, html: { class: "card shadow-sm p-4 mb-5 bg-body rounded" } do |f| %>
-  <h2 class="mb-4"><%= @van.new_record? ? "Créer un van" : "Modifier ce van" %></h2>
-
-  <%= f.input :title, input_html: { class: "form-control-sm" } %>
-  <%= f.input :description, input_html: { class: "form-control-sm" } %>
-  <%= f.input :price, input_html: { step: 0.01, class: "form-control-sm" } %>
-  <%= f.input :model, input_html: { class: "form-control-sm" } %>
-  <%= f.input :seats, input_html: { class: "form-control-sm" } %>
-  <%= f.input :size, input_html: { class: "form-control-sm" } %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true, class: "form-control-sm" } %>
-
-  <%= f.button :submit, class: "btn btn-primary btn-sm mt-3" %>
-<% end %>
--->
-
-
 <div class="van-form-hero d-flex justify-content-center align-items-center">
   <div class="form-card">
     <%= simple_form_for @van, html: { class: "p-4 bg-white rounded shadow-lg" } do |f| %>
