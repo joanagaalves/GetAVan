@@ -1,10 +1,35 @@
-<h1>My Reservations</h1>
 
-<% @bookings.each do |booking| %>
-  <div class="card mb-2">
-    <div class="card-body">
-      <strong>Van:</strong> <%= booking.van.title %><br>
-      <strong>Dates:</strong> <%= booking.start_date %> to <%= booking.end_date %>
+<div class="container py-5">
+  <h1 class="mb-5 text-left fw-bold">My Reservations</h1>
+  <% @bookings.each do |booking| %>
+    <div class="card mb-4 shadow-sm border-0">
+      <div class="row g-0">
+        <!-- Van Image -->
+        <div class="col-md-4">
+          <% if booking.van.photos.attached? %>
+            <%= image_tag booking.van.photos.first, class: "img-fluid h-100 w-100 object-fit-cover rounded-start", style: "min-height: 200px;" %>
+          <% else %>
+            <div class="d-flex align-items-center justify-content-center bg-light text-muted rounded-start" style="height: 100%; min-height: 200px;">
+              <span class="fst-italic">No image available</span>
+            </div>
+          <% end %>
+        </div>
+
+      <!-- Booking Details -->
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title mb-3 fw-bold"><i class="bi bi-truck-front me-2"></i><%= booking.van.title %></h5>
+          <p class="card-text mb-2">
+            <i class="bi bi-calendar-range me-2"></i>
+            <strong>From:</strong> <%= booking.start_date.strftime("%d %B %Y") %>
+            <br>
+            <strong>To:</strong> <%= booking.end_date.strftime("%d %B %Y") %>
+          </p>
+          <p class="card-text text-muted fst-italic"><%= truncate(booking.van.description, length: 100) %></p>
+          <%= link_to "View Van", van_path(booking.van), class: "btn-primary-cta" %>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>
