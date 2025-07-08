@@ -11,6 +11,7 @@
   border-radius: 0.5rem;
   font-weight: 600;
   transition: background 0.3s ease;
+  text-decoration: none;
 
   &:hover {
     background-color: darken(#e98800, 10%);
@@ -28,5 +29,21 @@
 
   &:hover {
     background-color: rgba(200, 200, 200, 0.6);
+  }
+}
+
+.btn-delete {
+  background-color: transparent;
+  color: rgba(200, 200, 200, 0.6);
+  border: 2px solid rgba(200, 200, 200, 0.6);
+  padding: 0.5rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: #FD1115;
+    color: white;
   }
 }
