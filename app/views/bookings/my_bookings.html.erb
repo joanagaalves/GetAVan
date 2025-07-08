@@ -1,0 +1,10 @@
+<h1>My Reservations</h1>
+
+<% @bookings.each do |booking| %>
+  <div class="card mb-2">
+    <div class="card-body">
+      <strong>Van:</strong> <%= booking.van.title %><br>
+      <strong>Dates:</strong> <%= booking.start_date %> to <%= booking.end_date %>
+    </div>
+  </div>
+<% end %>
