@@ -1,21 +1,51 @@
-<h1>Please have a look at all the details of <%= @van.title %></h1>
-<% if @van.photos.attached? %>
-  <% @van.photos.each do |photo| %>
-    <%= image_tag photo, width: 400 %>
-  <% end %>
-<% else %>
-  <p>No photos attached.</p>
-<% end %>
-<ul>
-  <li><strong>Title:</strong> <%= @van.title %></li>
-  <li><strong>Description:</strong> <%= @van.description %></li>
-  <li><strong>Price:</strong> <%= number_to_currency(@van.price) %></li>
-  <li><strong>Seats:</strong> <%= @van.seats %></li>
-  <li><strong>Size:</strong> <%= @van.size %></li>
-</ul>
-
-<div class="container mt-5 text-center">
-  <%= link_to "Modifier", edit_van_path(@van), class: "btn btn-warning" %>
-  <%= link_to "Back to Vans list", vans_path, class: "btn btn-outline-secondary"  %>
-  <%= link_to "Back to Home page", root_path, class: "btn btn-outline-secondary"  %>
+<div class="container py-5" style="font-family: 'Georgia', serif; background-color: #f9f5f0;">
+  <div class="row mb-4">
+    <div class="col-md-7">
+      <% if @van.photos.attached? %>
+        <div id="vanPhotosCarousel" class="carousel slide mb-3" data-bs-ride="carousel">
+          <div class="carousel-inner rounded-4 shadow">
+            <% @van.photos.each_with_index do |photo, idx| %>
+              <div class="carousel-item <%= 'active' if idx == 0 %>">
+                <%= image_tag photo, class: "d-block w-100", style: "object-fit:cover; height:400px; border: 5px solid #d2b48c;" %>
+              </div>
+            <% end %>
+          </div>
+          <% if @van.photos.count > 1 %>
+            <button class="carousel-control-prev" type="button" data-bs-target="#vanPhotosCarousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true" style="filter: sepia(1);"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#vanPhotosCarousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true" style="filter: sepia(1);"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="bg-light d-flex align-items-center justify-content-center rounded-4 shadow" style="height:400px; border: 5px solid #d2b48c;">
+          <span class="text-muted" style="font-style: italic;">No photos available</span>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-md-5">
+      <div class="card shadow-sm p-4 h-100" style="background-color: #fff8dc; border: 2px solid #d2b48c;">
+        <h2 class="mb-3" style="color: #8b4513;"><%= @van.title %></h2>
+        <p class="text-muted mb-4" style="font-style: italic;"><%= @van.description %></p>
+        <ul class="list-unstyled mb-4">
+          <li><i class="bi bi-cash-coin me-2" style="color: #8b4513;"></i><strong>Price:</strong> <%= number_to_currency(@van.price) %> / day</li>
+          <li><i class="bi bi-person-fill me-2" style="color: #8b4513;"></i><strong>Seats:</strong> <%= @van.seats %></li>
+          <li><i class="bi bi-arrows-angle-expand me-2" style="color: #8b4513;"></i><strong>Size:</strong> <%= @van.size %></li>
+        </ul>
+        <div class="d-grid gap-2">
+          <%= link_to "Edit this van", edit_van_path(@van), class: "btn btn-warning", style: "background-color: #d2b48c; border-color: #8b4513; color: #fff;" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col text-center">
+      <%= link_to "Back to the list", vans_path, class: "btn btn-outline-secondary me-2", style: "border-color: #8b4513; color: #8b4513;" %>
+      <%= link_to "Home", root_path, class: "btn btn-outline-secondary", style: "border-color: #8b4513; color: #8b4513;" %>
+    </div>
+  </div>
 </div>
