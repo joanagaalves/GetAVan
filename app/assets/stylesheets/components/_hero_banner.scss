@@ -1,19 +1,24 @@
 .hero-banner {
+  .h1 {
+    font-size: 4rem;
+    color: #cc7700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  .h2 {
+    font-size: 1.5rem;
+    color: white;
+  }
   background-image: image-url("van_banner.png");
+  background-color: rgba(0, 0, 0, 0.4);
+  background-blend-mode: overlay;
   background-size: cover;
   background-position: center;
   height: 90vh;
   padding: 2rem;
-  color: white;
+  padding-bottom: 20rem;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.hero-banner h1 {
-  font-size: 3rem;
-  color: #cc7700;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
