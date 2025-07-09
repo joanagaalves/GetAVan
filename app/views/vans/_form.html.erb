@@ -1,8 +1,10 @@
 <%= simple_form_for @van, html: { class: "form-card p-4 bg-white shadow-lg" } do |f| %>
   <h1 class="mb-4 text-center fw-bold text-dark">
-    <%= @van.new_record? ? "Add a new Van" : "Edit \"#{@van.title}\"" %>
-  </h1>
-
+   <%= @van.new_record? ? "Add a new Van" : "Edit \"#{@van.title}\"" %>
+       </h1>
+   <% if @van.new_record? %>
+     <h3 class="text-left mb-5">Reach more travelers and earn income by sharing your van.</h3>
+   <% end %>
   <div class="row">
     <div class="col-md-6">
       <%= f.input :title, label: "Title", input_html: { class: "form-control" } %>
