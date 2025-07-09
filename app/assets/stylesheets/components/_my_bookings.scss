@@ -1,24 +1,31 @@
-.text-orange {
-  color: #cc7700;
-}
-
 .reservation-card {
-  border: 2px solid #e2c49a;
-  background-color: #fff8ed;
+  background-color: #ffffff;
   border-radius: 1rem;
-  padding: 1rem;
+  overflow: hidden;
 
   .card-title {
-    font-weight: 600;
-    font-size: 1.25rem;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--orange);
   }
 
   .card-text {
     font-size: 1rem;
-    color: #555;
+    color: #333;
+    margin-bottom: 0.75rem;
+
+    i {
+      color: var(--orange);
+      margin-right: 0.5rem;
+    }
   }
 
-  i {
-    vertical-align: middle;
+  .card-footer {
+    text-align: right;
+  }
+
+  .btn-primary-cta {
+    padding: 0.5rem 1.25rem;
+    font-size: 0.95rem;
   }
 }

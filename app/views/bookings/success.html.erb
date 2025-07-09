@@ -1,3 +1,11 @@
-<h1>Requent sent successfully!</h1>
-<p>Thank you for your reservation. The owner of the <%= @van&.model %> will contact you shortly with details.</p>
-<%= link_to "Back to Vans", vans_path, class: "btn btn-primary mt-3" %>
+<div class="container py-5">
+  <div class="text-left mb-4">
+    <i class="bi bi-check-circle-fill text-success" style="font-size: 3rem;"></i>
+    <h1>Request sent successfully!</h1>
+    <p>Thank you for your reservation. The owner of the <%= @van&.model %> will contact you shortly with confirmation and details.</p>
+  </div>
+
+  <div class="mb-4">
+    <%= link_to "Back to Vans", vans_path, class: "btn-primary-cta" %>
+  </div>
+</div>

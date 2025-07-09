@@ -1,27 +1,26 @@
-<%= simple_form_for [@van, @booking], html: { class: "p-4 bg-white rounded shadow-lg" }, local: true do |form| %>
-  <div>
-    <%= form.label :van_name, "Van" %><br>
-    <%= text_field_tag :van_name, @van.title, disabled: true %>
+<%= simple_form_for [@van, @booking], html: { class: "booking-form" }, local: true do |form| %>
+  <div class="row">
+    <div class="col-md-6 mb-3">
+      <%= form.input :van_title, label: "Van", input_html: { value: @van.title, class: "form-control", disabled: true } %>
+    </div>
+    <div class="col-md-6 mb-3">
+      <%= form.input :van_model, label: "Model", input_html: { value: @van.model, class: "form-control", disabled: true } %>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :van_model, "Model" %><br>
-    <%= text_field_tag :van_name, @van.model, disabled: true %>
+  <div class="row">
+    <div class="col-md-6 mb-3">
+      <%= form.input :start_date, as: :date, label: "Start Date", input_html: { class: "form-control" } %>
+    </div>
+    <div class="col-md-6 mb-3">
+      <%= form.input :end_date, as: :date, label: "End Date", input_html: { class: "form-control" } %>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :start_date %><br>
-    <%= form.date_field :start_date %>
-  </div>
+  <%= form.button :submit, class: "btn btn-primary-cta w-100 mt-3" %>
 
-  <div>
-    <%= form.label :end_date %><br>
-    <%= form.date_field :end_date %>
-  </div>
-
-  <%= form.submit "Reserve", class: "btn btn-primary-cta w-100 mt-3" %>
-    <small class="form-text text-muted d-block mt-2">
-    You won't be charged yet. <br>
-    We'll contact you within 24 hours to confirm your booking details.
+  <small class="form-text text-muted d-block mt-2 text-center">
+    You won’t be charged yet. <br>
+    We’ll contact you within 24 hours to confirm your booking.
   </small>
 <% end %>

@@ -1,8 +1,8 @@
-
 <div class="container py-5">
-  <h1 class="mb-5 text-left fw-bold">My Reservations</h1>
+  <h1 class="mb-5 text-left fw-bold text-orange">My Reservations</h1>
+
   <% @bookings.each do |booking| %>
-    <div class="card mb-4 shadow-sm border-0">
+    <div class="van-card reservation-card mb-4">
       <div class="row g-0">
         <!-- Van Image -->
         <div class="col-md-4">
@@ -15,18 +15,24 @@
           <% end %>
         </div>
 
-      <!-- Booking Details -->
-      <div class="col-md-8">
-        <div class="card-body">
-          <h5 class="card-title mb-3 fw-bold"><i class="bi bi-truck-front me-2"></i><%= booking.van.title %></h5>
-          <p class="card-text mb-2">
-            <i class="bi bi-calendar-range me-2"></i>
-            <strong>From:</strong> <%= booking.start_date.strftime("%d %B %Y") %>
-            <br>
-            <strong>To:</strong> <%= booking.end_date.strftime("%d %B %Y") %>
-          </p>
-          <p class="card-text text-muted fst-italic"><%= truncate(booking.van.description, length: 100) %></p>
-          <%= link_to "View Van", van_path(booking.van), class: "btn-primary-cta" %>
+        <!-- Booking Details -->
+        <div class="col-md-8 d-flex flex-column justify-content-between">
+          <div class="card-body p-4">
+            <h5 class="card-title fw-bold mb-3 text-orange">
+              <i class="bi bi-truck-front me-2"></i><%= booking.van.title %>
+            </h5>
+
+            <p class="card-text mb-3">
+              <i class="bi bi-calendar-range me-2 text-orange"></i>
+              <strong>From:</strong> <%= booking.start_date.strftime("%d %B %Y") %><br>
+              <strong>To:</strong> <%= booking.end_date.strftime("%d %B %Y") %>
+            </p>
+
+            <p class="card-text text-muted fst-italic"><%= truncate(booking.van.description, length: 100) %></p>
+          </div>
+
+          <div class="px-4 pb-4 text-end">
+            <%= link_to "View Van", van_path(booking.van), class: "btn btn-primary-cta" %>
           </div>
         </div>
       </div>

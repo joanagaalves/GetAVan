@@ -1,27 +1,22 @@
-// Variables (already used in your theme)
-:root {
-  --orange: #e98800;
-  --gray: rgba(231, 231, 231, 0.38);
+.van-edit-hero {
+  background-image: image-url("van_life_3.png");
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: overlay;
+  background-color: rgba(0, 0, 0, 0.4);
+  height: 91vh;
+  padding: 2rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.van-edit-form {
-  background-image: "van_back_2.png";
-}
-
-// Orange text utility
-.text-orange {
-  color: var(--orange);
-}
-
-// Optional if not defined yet
-.van-card {
-  border: 1px solid var(--gray);
+.form-card {
+  background-color: white;
+  padding: 2rem;
   border-radius: 1rem;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-  background-color: #fff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 600px;
 }
-
-// Button styles already exist:
-// .btn-secondary-cta (gray theme)
-// .btn-primary-cta (orange)

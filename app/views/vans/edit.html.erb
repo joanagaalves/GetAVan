@@ -1,10 +1,7 @@
-
-<div class="van-edit-form py-5 row justify-content-center col-md-8">
+<div class="van-edit-hero d-flex flex-column justify-content-center align-items-center">
   <%= render "form" %>
 
-  <div class="row mt-4">
-    <div class="col text-center">
-      <%= link_to "Back to the van", van_path(@van), class: "btn btn-secondary-cta" %>
-    </div>
+  <div class="text-center mt-4">
+    <%= link_to "← Back to this van", van_path(@van), class: "btn btn-secondary-cta" %>
   </div>
 </div>
