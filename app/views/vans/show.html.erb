@@ -41,9 +41,9 @@
         </ul>
         <div class="d-grid gap-2 mt-auto">
           <% if @van.user == current_user %>
-            <%= link_to "Edit this van", edit_van_path(@van), class: "btn btn-primary-cta" %>
+            <%= link_to "Edit this van", edit_van_path(@van), class: "btn-secondary-cta" %>
           <% end %>
-          <%= link_to "Reserve this van", new_van_booking_path(@van), class: "btn btn-cta-blue" %>
+          <%= link_to "Reserve this van", new_van_booking_path(@van), class: "btn-primary-cta" %>
         </div>
       </div>
     </div>

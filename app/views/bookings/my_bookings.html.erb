@@ -24,8 +24,8 @@
 
             <p class="card-text mb-3">
               <i class="bi bi-calendar-range me-2 text-orange"></i>
-              <strong>From:</strong> <%= booking.start_date.strftime("%d %B %Y") %><br>
-              <strong>To:</strong> <%= booking.end_date.strftime("%d %B %Y") %>
+                <strong>From:</strong> <%= booking.start_date.strftime("%d %B %Y") %><br>
+                <strong>To:</strong> <%= booking.end_date.strftime("%d %B %Y") %>
             </p>
 
             <p class="card-text text-muted fst-italic"><%= truncate(booking.van.description, length: 100) %></p>

@@ -19,7 +19,7 @@
               <p class="card-text"><%= truncate(van.description, length: 100) %></p>
               <div class="d-flex justify-content-between align-items-center">
                 <%= link_to "View", van_path(van), class: "btn btn-primary-cta" %>
-                <%= link_to "Edit", edit_van_path(van), class: "btn btn-cta-blue" %>
+                <%= link_to "Edit", edit_van_path(van), class: "btn-secondary-cta" %>
                 <%= link_to van_path(van), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-delete" do %>
                   <i class="fa fa-trash"></i> Delete
                 <% end %>

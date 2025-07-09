@@ -13,6 +13,8 @@
   font-weight: 600;
   transition: background 0.3s ease;
   text-decoration: none;
+  text-align: center;
+
 
   &:hover {
     background-color: darken(#e98800, 10%);
@@ -27,6 +29,8 @@
   border-radius: 0.5rem;
   font-weight: 600;
   transition: background 0.3s ease;
+  text-decoration: none;
+  text-align: center;
 
   &:hover {
     background-color: rgba(200, 200, 200, 0.6);
@@ -40,7 +44,7 @@
   padding: 0.5rem 1.2rem;
   border-radius: 8px;
   font-weight: 600;
-  text-transform: uppercase;
+  //text-transform: uppercase;
   transition: all 0.3s ease;
 
   &:hover {
@@ -69,8 +73,8 @@
   color: red;
 
   &:hover {
-  border-color: rgb(130, 0, 0);
-  background-color: (darken(rgb(237, 102, 102), 10%));
-  color:rgb(73, 8, 8);
+  border-color: white;
+  background-color: red;
+  color: white;
   }
 }
