@@ -40,7 +40,7 @@ class VansController < ApplicationController
 
   def destroy
     @van.destroy
-    redirect_to vans_path, notice: "Van was successfully deleted."
+    redirect_to my_vans_path, notice: "Van was successfully deleted."
   end
 
   def my_vans

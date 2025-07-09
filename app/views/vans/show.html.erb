@@ -35,6 +35,7 @@
         <h2 class="card-title mb-3 fw-bold text-orange"><%= @van.title %></h2>
         <p class="text-muted mb-4 fst-italic"><%= @van.description %></p>
         <ul class="list-unstyled mb-4 fs-6">
+          <li><i class="bi bi-cash-coin me-2 text-orange"></i><strong>Model:</strong> <%= @van.model %></li>
           <li><i class="bi bi-cash-coin me-2 text-orange"></i><strong>Price:</strong> <%= number_to_currency(@van.price, unit: "€") %>/day</li>
           <li><i class="bi bi-person-fill me-2 text-orange"></i><strong>Seats:</strong> <%= @van.seats %></li>
           <li><i class="bi bi-arrows-angle-expand me-2 text-orange"></i><strong>Size:</strong> <%= @van.size %></li>
