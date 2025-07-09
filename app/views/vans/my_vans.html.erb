@@ -1,0 +1,34 @@
+
+<div class="container mt-5">
+  <h1 class="text-left mb-5 fw-bold">Your Van Listings</h1>
+
+  <div class="row">
+    <% if @vans.any? %>
+
+      <% @vans.each do |van| %>
+        <div class="col-md-4 mb-4">
+          <div class="van-card">
+            <% if van.photos.attached? %>
+              <%=  cl_image_tag van.photos.first.key, class: "img-fluid" %>
+            <% else %>
+              <%#= image_tag "sample_van.jpg", class: "img-fluid" %>
+            <% end %>
+
+            <div class="card-body">
+              <h5 class="card-title"><%= van.title %></h5>
+              <p class="card-text"><%= truncate(van.description, length: 100) %></p>
+              <div class="d-flex justify-content-between align-items-center">
+                <%= link_to "View", van_path(van), class: "btn btn-primary-cta" %>
+                <%= link_to "Edit", edit_van_path(van), class: "btn btn-cta-blue" %>
+                <%= link_to van_path(van), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-delete" do %>
+                  <i class="fa fa-trash"></i> Delete
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+
+  </div>
+</div>

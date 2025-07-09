@@ -11,8 +11,17 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <% flash.each do |key, value| %>
+      <% type = case key
+          when "notice" then "success"
+          when "alert" then "danger"
+          else "info"
+          end %>
+      <div class="alert alert-<%= type %> alert-dismissible fade show" role="alert">
+        <%= value %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    <% end %>
 
     <%= render "shared/navbar" %>
     <%= yield %>

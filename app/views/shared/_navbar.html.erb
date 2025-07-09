@@ -11,12 +11,12 @@
     <div class="collapse navbar-collapse" id="navbarContent">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <%= link_to "Vans", vans_path, class: "nav-link" %>
+          <%= link_to "Find a Van", vans_path, class: "nav-link" %>
         </li>
 
         <% if user_signed_in? %>
           <li class="nav-item">
-            <%= link_to "My Vans", "#", class: "nav-link" %>
+            <%= link_to "My Vans", my_vans_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
             <%= link_to "Bookings", my_bookings_path, class: "nav-link" %>
@@ -25,14 +25,14 @@
             <%= link_to "List your van", new_van_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "nav-link text-danger" %>
+            <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "nav-link text-danger" %>
           </li>
         <% else %>
           <li class="nav-item">
             <%= link_to "Login", new_user_session_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Sign Up", "#", class: "nav-link" %>
+            <%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %>
           </li>
         <% end %>
       </ul>
