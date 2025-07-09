@@ -32,16 +32,19 @@
     }
   }
 
+
   .btn-secondary-cta {
-    background-color: rgba(231, 231, 231, 0.38);
-    color: #333;
-    font-weight: 600;
+    background-color: var(--blue);
+    color: white;
     border: none;
+    padding: 0.75rem 1.5rem;
     border-radius: 0.5rem;
-    padding: 0.6rem 1.2rem;
+    font-weight: 600;
+    transition: background 0.3s ease;
 
     &:hover {
-      background-color: #dcdcdc;
+      background-color: darken(#3515b6, 10%);
+      color: white;
     }
   }
 }

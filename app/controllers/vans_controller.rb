@@ -7,6 +7,9 @@ class VansController < ApplicationController
   end
 
   def show
+    if params[:from] == "bookings" && params[:booking_id]
+      @booking = Booking.find(params[:booking_id])
+    end
   end
 
   def new

@@ -28,11 +28,11 @@
                 <strong>To:</strong> <%= booking.end_date.strftime("%d %B %Y") %>
             </p>
 
-            <p class="card-text text-muted fst-italic"><%= truncate(booking.van.description, length: 100) %></p>
+            <p class="card-text text-muted fst-italic"><%= truncate(booking.van.description, length: 50) %></p>
           </div>
 
           <div class="px-4 pb-4 text-end">
-            <%= link_to "View Van", van_path(booking.van), class: "btn btn-primary-cta" %>
+            <%= link_to "View reservation", van_path(booking.van, from: "bookings", booking_id: booking.id), class: "btn btn-primary-cta" %>
           </div>
         </div>
       </div>

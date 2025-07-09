@@ -40,15 +40,20 @@
           <li><i class="bi bi-person-fill me-2 text-orange"></i><strong>Seats:</strong> <%= @van.seats %></li>
           <li><i class="bi bi-arrows-angle-expand me-2 text-orange"></i><strong>Size:</strong> <%= @van.size %></li>
         </ul>
-        <div class="d-grid gap-2 mt-auto">
-          <% if @van.user == current_user %>
-            <%= link_to "Edit this van", edit_van_path(@van), class: "btn btn-primary-cta" %>
-          <% end %>
-          <% if @van.user != current_user %>
-            <%= link_to "Reserve this van", new_van_booking_path(@van), class: "btn btn-cta-blue" %>
-          <% end %>
+        <% if params[:from] == "bookings" && @booking %>
+          <h3>Reserved from <%= @booking.start_date.strftime("%d %B %Y") %> to <%= @booking.end_date.strftime("%d %B %Y") %></h3>
+        <% else %>
+          <div class="d-grid gap-2 mt-auto">
+            <% if @van.user == current_user %>
+              <%= link_to "Edit this van", edit_van_path(@van), class: "btn btn-primary-cta" %>
+            <% end %>
+            <% if @van.user != current_user %>
+              <%= link_to "Reserve this van", new_van_booking_path(@van), class: "btn btn-secondary-cta" %>
+            <% end %>
 
-        </div>
+
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
@@ -56,7 +61,11 @@
   <!-- BACK LINKS -->
   <div class="row">
     <div class="col text-center mt-3">
-      <%= link_to "← Back to the list", vans_path, class: "btn btn-outline-secondary me-2" %>
+      <% if params[:from] == "bookings" %>
+        <%= link_to "← Back to My Bookings", my_bookings_path, class: "btn btn-outline-secondary" %>
+      <% else %>
+        <%= link_to "← Back to the list", vans_path, class: "btn btn-outline-secondary me-2" %>
+      <% end %>
       <%= link_to "Home", root_path, class: "btn btn-outline-secondary me-2" %>
       <% if @van.user == current_user %>
         <%= link_to van_path(@van), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger me-2" do %>
