@@ -30,11 +30,9 @@ class VansController < ApplicationController
   end
 
   def update
-    if params[:van][:photos].present?
-      @van.photos.attach(params[:van][:photos])
-    end
-
     if @van.update(van_params.except(:photos))
+      # Only attach if files present
+      @van.photos.attach(params[:van][:photos]) if params[:van][:photos].present?
       redirect_to van_path(@van), notice: "Van was successfully updated."
     else
       render :edit, status: :unprocessable_entity
